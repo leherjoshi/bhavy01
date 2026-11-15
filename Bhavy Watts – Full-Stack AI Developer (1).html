@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bhavy Watts – Full-Stack AI Developer</title>
+<style>
+:root{--bg:#fff;--bg2:#f4f5fb;--tx:#14151f;--mu:#5d6075;--ac:#5b5bf0;--ac2:#14b8a6;--bd:#e3e5f0;--card:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d0e17;--bg2:#13152a;--tx:#eceefb;--mu:#9a9db8;--ac:#8b8bff;--ac2:#2dd4bf;--bd:#262a48;--card:#171a31}}
+:root[data-theme="dark"]{--bg:#0d0e17;--bg2:#13152a;--tx:#eceefb;--mu:#9a9db8;--ac:#8b8bff;--ac2:#2dd4bf;--bd:#262a48;--card:#171a31}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--tx);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:inherit;text-decoration:none}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;display:flex;justify-content:space-between;align-items:center;padding:12px 5vw;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--bd)}
+nav b{font-size:18px}nav b span{color:var(--ac)}
+.links{display:flex;gap:16px;align-items:center;font-size:14px;color:var(--mu)}
+.links a:hover{color:var(--ac)}
+.links{margin-left:auto;margin-right:14px}.links a{padding:4px 2px;border-bottom:2px solid transparent}.links a.act{color:var(--ac);font-weight:600;border-bottom-color:var(--ac)}
+.nr{display:flex;gap:8px}#menu{display:none;background:var(--bg2);border:1px solid var(--bd);color:var(--tx);border-radius:8px;width:34px;height:34px}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--ac),var(--ac2));z-index:20}
+#top{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:44px;height:44px;border-radius:50%;border:0;background:var(--ac);color:#fff;font-size:18px;opacity:0;pointer-events:none;transition:.3s;z-index:9;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+#top.show{opacity:1;pointer-events:auto}#top:hover{transform:translateY(-3px)}
+@media(max-width:760px){#menu{display:inline-block}.links{display:none;position:absolute;top:100%;left:0;right:0;margin:0;flex-direction:column;align-items:flex-start;gap:6px;padding:14px 5vw;background:var(--bg);border-bottom:1px solid var(--bd);font-size:16px}.links.open{display:flex}}
+button{font:inherit;cursor:pointer}
+#theme{background:var(--bg2);border:1px solid var(--bd);color:var(--tx);border-radius:50%;width:34px;height:34px}
+section{padding:76px 5vw;max-width:1080px;margin:auto}
+h2{font-size:30px;margin-bottom:28px}h2::after{content:"";display:block;width:44px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--ac),var(--ac2));margin-top:8px}
+.hero{min-height:84vh;display:flex;flex-direction:column;justify-content:center}
+.hi{color:var(--ac);font-weight:600}
+h1{font-size:clamp(38px,8vw,68px);line-height:1.1;margin:8px 0}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.type{font-size:clamp(18px,3vw,26px);color:var(--mu);min-height:1.6em}
+.type::after{content:"|";animation:bl 1s infinite;color:var(--ac)}@keyframes bl{50%{opacity:0}}
+.sum{max-width:640px;margin:18px 0 26px;color:var(--mu)}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:11px 22px;border-radius:10px;font-weight:600;border:1px solid var(--ac);background:var(--ac);color:#fff;display:inline-block;transition:.2s}
+.btn.o{background:transparent;color:var(--ac)}
+.btn:hover{transform:translateY(-2px)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:44px}
+.stat{background:var(--bg2);border:1px solid var(--bd);border-radius:14px;padding:18px}
+.stat b{font-size:30px;color:var(--ac);display:block}.stat span{color:var(--mu);font-size:14px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tab{background:var(--bg2);border:1px solid var(--bd);color:var(--tx);padding:7px 16px;border-radius:99px;font-size:14px}
+.tab.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--bg2);border:1px solid var(--bd);padding:6px 13px;border-radius:8px;font-size:14px;transition:.2s}
+.chip:hover{border-color:var(--ac);color:var(--ac);transform:translateY(-2px)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:22px;transition:.25s;cursor:pointer}
+.card:hover{transform:translateY(-5px);border-color:var(--ac);box-shadow:0 12px 30px color-mix(in srgb,var(--ac) 18%,transparent)}
+.cat{font-size:12px;color:var(--ac2);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.card h3{font-size:19px;margin:4px 0}.card .sub{color:var(--mu);font-size:14px}
+.card ul{padding-left:18px;color:var(--mu);font-size:14.5px;display:none;margin-top:14px}
+.card.open ul{display:block}.card li{margin-bottom:7px}
+.hint{font-size:13px;color:var(--ac);margin-top:10px}.card.open .hint{display:none}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}.tags span{font-size:12px;padding:3px 9px;border-radius:6px;background:var(--bg2);color:var(--ac)}
+.lead{background:linear-gradient(135deg,color-mix(in srgb,var(--ac) 12%,var(--bg)),color-mix(in srgb,var(--ac2) 12%,var(--bg)));max-width:none;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.lead>div{max-width:1080px;margin:auto}
+.lbox{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:24px;margin-bottom:18px}
+.lbox h3{font-size:22px}.lbox .role{color:var(--ac);font-weight:600;margin-bottom:10px}
+.lbox ul{padding-left:18px;color:var(--mu)}.lbox li{margin-bottom:6px}
+.pill{display:inline-block;background:var(--ac);color:#fff;font-size:12px;padding:3px 10px;border-radius:99px;margin:0 6px 8px 0}
+.gtm{background:var(--bg2);border:1px solid var(--bd);border-radius:16px;padding:24px}
+.gtm h3{margin-bottom:8px}.gtm p{color:var(--mu)}
+.tl{border-left:2px solid var(--bd);padding-left:22px}
+.tl div{position:relative;margin-bottom:22px}
+.tl div::before{content:"";position:absolute;left:-29px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--ac)}
+.tl small{color:var(--mu)}
+.ach li{margin:0 0 12px 18px;color:var(--mu)}.ach b{color:var(--tx)}
+.contact{text-align:center}.contact h2::after{margin:8px auto 0}
+.contact p{color:var(--mu);margin:0 auto 22px;max-width:520px}
+footer{text-align:center;padding:26px;color:var(--mu);font-size:13px;border-top:1px solid var(--bd)}
+.rv{opacity:0;transform:translateY(24px);transition:.7s}.rv.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<nav><b>Bhavy<span>.</span></b>
+<div class="links" id="links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#lead">Leadership</a><a href="#gtm">GTM</a><a href="#edu">Education</a><a href="#contact">Contact</a></div>
+<div class="nr"><button id="theme" title="Change theme" aria-label="Change theme">◐</button><button id="menu" aria-label="Open menu">☰</button></div></nav>
+
+<section class="hero" id="about">
+<p class="hi">Hello, I’m</p>
+<h1><em>Bhavy Watts</em></h1>
+<p class="type" id="type"></p>
+<p class="sum">Full-stack developer who builds AI-powered web apps with React, Node.js and AWS. I work with LLMs, RAG, vector search and serverless systems. I also lead teams, bring in sponsors and manage money for big campus events. I solved 1000+ DSA problems and led a 3-person team to ship a cloud-based AI platform.</p>
+<div class="btns"><a class="btn" href="#projects">View Projects</a><a class="btn o" href="#lead">Leadership &amp; Sales</a></div>
+<div class="stats">
+<div class="stat"><b data-n="1000" data-s="+">0</b><span>DSA problems solved</span></div>
+<div class="stat"><b data-n="494" data-p="#">0</b><span>Global rank, LeetCode Biweekly 187</span></div>
+<div class="stat"><b data-n="60" data-s="%">0</b><span>LLM cost reduced</span></div>
+<div class="stat"><b data-n="9" data-s="">0</b><span>Projects built</span></div>
+</div></section>
+
+<section id="skills"><h2 class="rv">Technical Skills</h2>
+<div class="tabs rv" id="stabs"></div><div class="chips rv" id="schips"></div></section>
+
+<section id="projects"><h2 class="rv">Projects</h2>
+<div class="tabs rv" id="ptabs"></div>
+<div class="grid" id="pgrid"></div></section>
+
+<section class="lead" id="lead"><div>
+<h2 class="rv">Leadership &amp; Sales</h2>
+<div class="lbox rv"><span class="pill">Spotivoes · LNMIIT Sports Fest</span><span class="pill">Sponsorship</span><span class="pill">PR</span><span class="pill">Finance</span>
+<h3>Sponsorship Head &amp; Public Relations Head</h3>
+<p class="role">Spotivoes, the LNMIIT Sports Fest</p>
+<ul>
+<li>Led the sponsorship team and brought in many sponsors for the fest.</li>
+<li>Pitched brands, built relationships and closed deals, so this was real sales work.</li>
+<li>Ran Public Relations: brand image, media and outreach for the fest.</li>
+<li>Managed the fest’s finance and handled the biggest sponsorship budgets.</li>
+</ul></div>
+<div class="grid">
+<div class="lbox rv"><h3>Team Leader</h3><p class="role">CodeFlow AI</p><ul><li>Led a 3-person team and owned architecture and AWS CDK.</li></ul></div>
+<div class="lbox rv"><h3>Class Representative</h3><p class="role">CSE Batch 23</p><ul><li>Liaison between 120+ students and faculty.</li></ul></div>
+<div class="lbox rv"><h3>Teaching Assistant</h3><p class="role">LNMIIT</p><ul><li>Design &amp; Analysis of Algorithms and Computer Networks.</li></ul></div>
+<div class="lbox rv"><h3>Media Cell Member</h3><p class="role">LNMIIT</p><ul><li>Part of the student media team.</li></ul></div>
+</div></div></section>
+
+<section id="gtm"><h2 class="rv">Builder + Growth Mindset (GTM)</h2>
+<p class="rv" style="color:var(--mu);margin-bottom:20px;max-width:680px">I like building tools and automations that bring customers. I also know how to sell, write and measure. Click a topic to see how my work fits.</p>
+<div class="tabs rv" id="gtabs"></div>
+<div class="gtm rv"><h3 id="gt"></h3><p id="gp"></p></div></section>
+
+<section id="edu"><h2 class="rv">Education</h2>
+<div class="tl rv">
+<div><b>B.Tech, Computer Science and Engineering</b><br>The LNM Institute of Information Technology (LNMIIT), Jaipur<br><small>Expected May 2027</small>
+<p style="color:var(--mu);font-size:14.5px;margin-top:6px">Coursework: Data Structures &amp; Algorithms, Object-Oriented Design, DBMS, Computer Networks, Operating Systems, Distributed Systems</p></div>
+<div><b>CBSE Class XII: 78.60%</b><br>Nosegay Public School, Sri Ganganagar<br><small>2019 – 2020</small></div>
+<div><b>CBSE Class X: 90.20%</b><br>Nosegay Public School, Sri Ganganagar<br><small>2021 – 2022</small></div>
+</div>
+<h2 class="rv" style="margin-top:60px">Achievements</h2>
+<ul class="ach rv">
+<li><b>LeetCode:</b> Global Rank 494 among 25,000+ participants in Biweekly Contest 187. Solved 1000+ DSA problems.</li>
+<li><b>Winner (1st Place), Google Cloud GenAI Competition:</b> built and shipped a working AI prototype under tight time limits.</li>
+<li><b>Winner, Robot Car Competition at LNMIIT:</b> built a robot car using electronics and won the college competition.</li>
+</ul></section>
+
+<section class="contact" id="contact"><h2 class="rv">Get In Touch</h2>
+<p class="rv">Have a project, opportunity or collaboration idea? Feel free to reach out. I would love to connect with you.</p>
+<div class="btns rv" style="justify-content:center">
+<a class="btn" href="mailto:23ucs556@lnmiit.ac.in">23ucs556@lnmiit.ac.in</a>
+<a class="btn o" href="tel:+919145940127">+91 91459 40127</a></div>
+<p class="rv" style="margin-top:18px;font-size:14px">Jaipur, India · Open to internships and full-time roles</p></section>
+<footer>© 2026 Bhavy Watts</footer>
+<button id="top" aria-label="Back to top">↑</button>
+
+<script>
+var skills={"AI / LLM":["RAG","Prompt Engineering","Amazon Bedrock","Google Gemini","LangChain","OpenSearch k-NN","Zod validation"],
+"Frontend":["React","Next.js","TypeScript","JavaScript","HTML5","CSS3"],
+"Backend":["Node.js","Express","FastAPI","ASP.NET Core","REST APIs","Microservices","JWT Auth"],
+"Databases":["MongoDB","DynamoDB","MySQL","SQL Server","SQLite"],
+"Cloud & DevOps":["AWS Lambda","API Gateway","DynamoDB","Bedrock","CDK","OpenSearch","Git","Linux","GitHub Actions"],
+"Languages":["JavaScript","TypeScript","Python","Java","C++","C#","SQL"],
+"IoT & Hardware":["ESP32","Raspberry Pi","MQTT","Blynk","Firebase","Sensors","Electronics"],
+"Leadership & Sales":["Sponsorship","Public Relations","Finance","Team Leadership","Communication","Negotiation"]};
+var projects=[
+{c:"AI / Cloud",t:"CodeFlow AI",s:"AI-powered LeetCode learning companion that finds weak topics and makes personalized learning paths.",tags:["Next.js","TypeScript","AWS","DynamoDB","Bedrock","OpenSearch"],
+b:["Built an AI mentor with Amazon Bedrock for debugging, explanations and hints (RAG-based).","Built a serverless backend with AWS Lambda, API Gateway and DynamoDB (6 Lambdas, 8 tables).","Added JWT authentication with a custom Lambda authorizer.","Cut LLM costs by 60% with a DynamoDB semantic query cache (7-day TTL).","Led a 3-person team and owned the architecture and AWS CDK."]},
+{c:"AI / Data",t:"DBTalk",s:"Retrieval-augmented natural-language-to-SQL engine.",tags:["Python","FastAPI","LangChain","Gemini","ChromaDB","React"],
+b:["Turns plain-English questions into SQL with an LCEL LangChain pipeline.","Uses Gemini embeddings and ChromaDB to fetch only the top-3 relevant tables.","Human-in-the-loop gate holds INSERT, UPDATE, DELETE and DROP until the user confirms."]},
+{c:"AI / Full Stack",t:"InterviewForge",s:"Adversarial interview-preparation engine.",tags:["React","Node.js","MongoDB","Gemini","JWT","GitHub Actions"],
+b:["Reads resumes (PDF) and job descriptions with Gemini to make tailored questions and match scores.","Mock-interview scoring (1–10) with structured feedback, checked with Zod.","JWT in httpOnly cookies, bcrypt, CORS/SameSite. CI/CD on Vercel, Render and Atlas."]},
+{c:"IoT / Hardware",t:"IoT Smart Parking System",s:"Sensor-based smart parking with real-time updates, reservations and alerts.",tags:["ESP32","Raspberry Pi","MQTT","Blynk","Firebase"],
+b:["Built a sensor-driven parking system with ESP32, force sensors and ultrasonic sensors to detect slot occupancy.","Used a Raspberry Pi as an MQTT broker for real-time publish/subscribe communication between devices.","Synced live status with the Blynk app for reservations and notifications. Saved history to Firebase for analytics.","Built slot reservation logic, partial-parking detection, and alerts with LEDs and buzzers."]},
+{c:"Frontend",t:"CompuNet",s:"Responsive computer website with modern UI, interactive navigation and structured course sections.",tags:["HTML","CSS","JavaScript"],
+b:["Built a clean responsive UI for desktop and mobile.","Added interactive frontend components with JavaScript.","Improved accessibility through responsive design."]},
+{c:"Java / Desktop",t:"Multi-Threaded Banking System",s:"Thread-safe banking system that handles concurrent transactions with synchronization.",tags:["Java","MySQL","JDBC","Swing","Multithreading"],
+b:["Handled concurrent transactions safely with multithreading.","Used OOP principles for modular, easy-to-maintain code.","Optimized SQL queries for faster transactions."]},
+{c:"System Design",t:"Distributed Cache System",s:"Distributed in-memory cache with concurrent read/write across many nodes.",tags:["Java","Multithreading","Networking","Consistent Hashing"],
+b:["Used consistent hashing and virtual nodes for balanced load.","Built LRU and LFU eviction policies with fast lookup.","Added replication and failover for high availability."]},
+{c:"Machine Learning",t:"Healthcare Symptom Predictor",s:"Scalable ML system that predicts diseases from unclear symptom inputs.",tags:["Python","Scikit-learn","Flask","SVM"],
+b:["Built an end-to-end ML pipeline for symptom-based prediction.","Tuned SVM kernels for low-latency inference.","Deployed the model as a RESTful Flask microservice."]},
+{c:"Full Stack",t:"Electronic Shop Management",s:"Shop system for products, stock, sales, invoices, customers and purchases.",tags:["ASP.NET Core","SQL Server","Entity Framework","MVC"],
+b:["Designed tables for products, categories, sales, stock and customers.","Built an admin dashboard, stock tracking and invoice management.","Used ASP.NET Core MVC with SQL Server and Entity Framework."]}];
+var gtm={"Automation":["Automating content and workflows","I build scripts, tools and pipelines that run on their own. CodeFlow AI uses serverless AWS and a semantic cache, DBTalk turns questions into SQL, and InterviewForge makes tailored output from a resume and a job post. Content generation and publishing at scale is the same kind of problem."],
+"Measure":["Measuring what works","In CodeFlow AI I tracked cache-hit rates against real API spending and cut costs by 60%. I like picking one number, tracking it, and knowing early when something is not working."],
+"Sales":["Selling and partnerships","As Sponsorship Head of Spotivoes, I pitched brands, closed sponsors and managed the money. This is the same skill needed for partner and affiliate programs."],
+"Copy":["Writing and communication","As PR Head I wrote and ran outreach, media and brand messaging for the fest. As a TA and Class Representative I explain things clearly to people."],
+"Ship":["Learning fast and shipping","I won 1st place in the Google Cloud GenAI Competition by shipping a working AI prototype under tight time. I like to build first, then improve."]};
+var $=function(s){return document.querySelector(s)};
+var words=["Full-Stack Developer","AI / LLM Engineer","Sponsorship & PR Lead","Competitive Programmer"],wi=0,ci=0,del=false,ty=$("#type");
+(function tick(){var w=words[wi];ty.textContent=w.slice(0,ci);
+if(!del&&ci==w.length){del=true;return setTimeout(tick,1400)}
+if(del&&ci==0){del=false;wi=(wi+1)%words.length}
+ci+=del?-1:1;setTimeout(tick,del?40:80)})();
+function tabs(box,keys,fn){keys.forEach(function(k){var b=document.createElement("button");b.className="tab";b.textContent=k;b.onclick=function(){[].forEach.call(box.children,function(x){x.classList.toggle("on",x==b)});fn(k)};box.appendChild(b)});box.children[0].click()}
+tabs($("#stabs"),Object.keys(skills),function(k){$("#schips").innerHTML=skills[k].map(function(x){return '<span class="chip">'+x+'</span>'}).join("")});
+tabs($("#gtabs"),Object.keys(gtm),function(k){$("#gt").textContent=gtm[k][0];$("#gp").textContent=gtm[k][1]});
+var cats=["All"].concat(projects.map(function(p){return p.c}).filter(function(v,i,a){return a.indexOf(v)==i}));
+function render(cat){$("#pgrid").innerHTML=projects.filter(function(p){return cat=="All"||p.c==cat}).map(function(p){return '<div class="card"><div class="cat">'+p.c+'</div><h3>'+p.t+'</h3><div class="sub">'+p.s+'</div><div class="tags">'+p.tags.map(function(t){return '<span>'+t+'</span>'}).join("")+'</div><ul>'+p.b.map(function(x){return '<li>'+x+'</li>'}).join("")+'</ul><div class="hint">Click to see details →</div></div>'}).join("");
+document.querySelectorAll(".card").forEach(function(c){c.onclick=function(){c.classList.toggle("open")}})}
+tabs($("#ptabs"),cats,render);
+$("#theme").onclick=function(){var r=document.documentElement,d=r.getAttribute("data-theme");
+var dark=d?d=="dark":matchMedia("(prefers-color-scheme:dark)").matches;r.setAttribute("data-theme",dark?"light":"dark")};
+function count(el){var n=+el.dataset.n,i=0,s=el.dataset.s||"",p=el.dataset.p||"";
+var t=setInterval(function(){i+=Math.ceil(n/50);if(i>=n){i=n;clearInterval(t)}el.textContent=p+i+s},25)}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll(".rv").forEach(function(e){io.observe(e)});
+var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){document.querySelectorAll("[data-n]").forEach(count);io2.disconnect()}})});
+io2.observe($(".stats"));
+var secs=["about","skills","projects","lead","gtm","edu","contact"].map(function(i){return document.getElementById(i)});
+var lk=document.querySelectorAll("#links a");
+function onScroll(){var y=window.scrollY,h=document.documentElement.scrollHeight-window.innerHeight;
+$("#bar").style.width=(h>0?y/h*100:0)+"%";
+$("#top").classList.toggle("show",y>500);
+var cur=0;secs.forEach(function(s,i){if(s.getBoundingClientRect().top<140)cur=i});
+if(h>0&&y>=h-4)cur=secs.length-1;
+lk.forEach(function(a,i){a.classList.toggle("act",i==cur)})}
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+$("#top").onclick=function(){window.scrollTo({top:0,behavior:"smooth"})};
+$("#menu").onclick=function(){$("#links").classList.toggle("open")};
+lk.forEach(function(a){a.onclick=function(){$("#links").classList.remove("open")}});
+</script>
+</body>
+</html>
